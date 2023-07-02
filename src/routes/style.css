@@ -483,31 +483,64 @@ legend{
 }
 .content{
     min-height:100vh;
-    display:-ms-flexbox;
-    display:flex;
-    -ms-flex-pack:center;
-    justify-content:center;
-    -ms-flex-align:center;
     font-family:montserrat,sans-serif;
     background:url(bg.webp);
     background-size:cover;
     background-position:center center;
     padding:15px
 }
-.content form{
-    width:100%;
-    max-width:390px;
+.content .result-area {
+    background-color: rgba(0,0,0,0.4);
+    margin-top:15px;
+    height: calc( 100vh - 80px - 15px - 15px - 15px );
 }
-.content form .inner-form{
+.content .result-area .result-empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .result-area .result-empty h1,
+.content .result-area .result-error h1{
+    margin: auto;
+    color:white;
+    font-size: 4em;
+}
+.content .result-area .result-error {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content .result-area .result-error h2{
+    margin: auto;
+    color:white;
+    font-size: 2em;
+}
+.content .search-area {    
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-pack:center;
+    justify-content:center;
+    -ms-flex-align:center;
+}
+.content .search-area .form-area {
+    max-width:450px;
+}
+.content .search-area .form-area form{
+    width:100%;
+}
+.content .search-area .form-area form .inner-form{
     width:100%;
     background-color: rgba(0,0,0,0.4);
 }
-.content form .inner-form .input-field{
+.content .search-area .form-area form .inner-form .input-field{
     height:80px;
     width:100%;
     position:relative
 }
-.content form .inner-form .input-field input{
+.content .search-area .form-area form .inner-form .input-field input{
     height:100%;
     width:100%;
     background:0 0;
@@ -520,24 +553,24 @@ legend{
     color:#fff;
     transition:all .2s ease-out,color .2s ease-out
 }
-.content form .inner-form .input-field input.placeholder{
+.content .search-area .form-area form .inner-form .input-field input.placeholder{
     color:#fff;
     font-size:18px
 }
-.content form .inner-form .input-field input:-moz-placeholder{
+.content .search-area .form-area form .inner-form .input-field input:-moz-placeholder{
     color:#fff;
     font-size:18px
 }
-.content form .inner-form .input-field input::-webkit-input-placeholder{
+.content .search-area .form-area form .inner-form .input-field input::-webkit-input-placeholder{
     color:#fff;
     font-size:18px
 }
-.content form .inner-form .input-field input:hover,.content form .inner-form .input-field input:focus{
+.content .search-area .form-area form .inner-form .input-field input:hover,.content .search-area .form-area form .inner-form .input-field input:focus{
     box-shadow:none;
     outline:0;
     border-bottom-color:#fff
 }
-.content form .inner-form .input-field .btn-search{
+.content .search-area .form-area form .inner-form .input-field .btn-search{
     width:70px;
     display:-ms-flexbox;
     display:flex;
@@ -551,25 +584,25 @@ legend{
     padding:0;
     cursor:pointer
 }
-.content form .inner-form .input-field .btn-search svg{
+.content .search-area .form-area form .inner-form .input-field .btn-search svg{
     fill:#fff;
     width:50px;
     height:50px
 }
-.content form .inner-form .input-field .btn-search:hover,.content form .inner-form .input-field .btn-search:focus{
+.content .search-area .form-area form .inner-form .input-field .btn-search:hover,.content .search-area .form-area form .inner-form .input-field .btn-search:focus{
     outline:0;
     box-shadow:none
 }
 @media screen and (max-width:767px){
-    .content form .inner-form .input-field{
+    .content .search-area .form-area form .inner-form .input-field{
         margin-bottom:20px;
         height:50px
     }
-    .content form .inner-form .input-field input{
+    .content .search-area .form-area form .inner-form .input-field input{
         padding-left:45px;
         font-size:16px
     }
-    .content form .inner-form .input-field .btn-search svg{
+    .content .search-area .form-area form .inner-form .input-field .btn-search svg{
         width:36px;
         height:36px
     }
