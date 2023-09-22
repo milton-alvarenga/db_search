@@ -18,7 +18,7 @@ const searchSchema = zod.object({
 function getData(terms){
 
     if(SECRET_DB_DRIVER == 'mysql'){
-        var mysql = import('mysql2');
+        return getMySQLData(terms);
     } else if(SECRET_DB_DRIVER == 'postgres'){
         return getPostgreSQLData(terms)
     }
@@ -59,19 +59,32 @@ async function getPostgreSQLData(terms){
     return result
 }
 
-async function getMySQLData(){
-/* 
-var connection = mysql.createConnection({host:'mydbserver', user: 'user', database: 'schemaname'});
- 
-connection.query('SELECT * FROM `employees` WHERE `name` = "Bob" AND `age` > 35', function (err, results, fields) {
-console.log(results);
-});
- 
-// with placeholder
-connection.query('SELECT * FROM `employees` WHERE `name` = "Bob" AND `age` > ?', [45], function (err, results) {
-console.log(results);
-});
-*/
+async function getMySQLData(terms){
+    let mysql2 = import('mysql2/promise');
+    const mysql = (await mysql2).default
+
+    let connection = await mysql.createConnection({
+        host:SECRET_DB_HOST,
+        user: SECRET_DB_USER,
+        database: SECRET_DB_NAME,
+        password: SECRET_DB_PASS
+    });
+
+    const [result,fields] = await connection.execute(`
+        SELECT
+            TABLE_NAME AS table_name,
+            table_catalog as db_name,
+            column_name as field_name,
+            DATA_TYPE AS data_type
+        FROM
+            information_schema.columns
+        WHERE
+            table_name LIKE ?
+            OR
+            column_name LIKE ?
+        `, ['%'+terms+'%','%'+terms+'%']);
+
+    return result;
 }
 
 export async function load( { params }) {
@@ -106,7 +119,7 @@ export const actions = {
             }
 
         } catch( err ){
-
+console.log(err);
             const { fieldErrors: errors } = err.flatten();
 
             return {
