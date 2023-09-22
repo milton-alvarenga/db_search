@@ -44,12 +44,14 @@
 						<th>Database</th>
 						<th>Table</th>
 						<th>Field</th>
+						<th>Data Type</th>
 					</tr>
 					{#each form.result as result}
 					<tr>
 						<td>{result.db_name}</td>
 						<td>{result.table_name}</td>
 						<td>{result.field_name}</td>
+						<td>{result.data_type}</td>
 					</tr>
 					{/each}
 				</table>
