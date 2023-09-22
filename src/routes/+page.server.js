@@ -73,7 +73,7 @@ async function getMySQLData(terms){
     const [result,fields] = await connection.execute(`
         SELECT
             TABLE_NAME AS table_name,
-            table_catalog as db_name,
+            TABLE_SCHEMA as db_name,
             column_name as field_name,
             DATA_TYPE AS data_type
         FROM
