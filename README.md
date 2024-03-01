@@ -3,11 +3,11 @@
 Basic project to read and search on tables and fields names on target database structure (MySQL or PostgreSQL)
 
 ## Before use, create a .env
-SECRET_DB_DRIVER = <postgres|mysql> 
-SECRET_DB_NAME = <dbname> 
-SECRET_DB_HOST = <host> 
-SECRET_DB_PORT = <port> 
-SECRET_DB_USER = <user> 
+SECRET_DB_DRIVER = [postgres|mysql]<br>
+SECRET_DB_NAME = [dbname]<br>
+SECRET_DB_HOST = [host]<br>
+SECRET_DB_PORT = [port]<br>
+SECRET_DB_USER = [user]<br>
 SECRET_DB_PASS = "" 
 
 ## Developing
