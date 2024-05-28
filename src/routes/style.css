@@ -481,18 +481,16 @@ legend{
 *{
     box-sizing:border-box
 }
-.content{
-    min-height:100vh;
-    font-family:montserrat,sans-serif;
-    background:url(bg.webp);
-    background-size:cover;
-    background-position:center center;
-    padding:15px
+.content {
+    min-height: 100vh;
+    font-family: montserrat, sans-serif;
+    background: url(bg.webp) center top repeat-y;
+    background-size: 100% auto;
+    padding: 15px;
 }
 .content .result-area {
     background-color: rgba(0,0,0,0.4);
     margin-top:15px;
-    height: calc( 100vh - 80px - 15px - 15px - 15px );
 }
 .content .result-area .result-empty {
     height: 100%;
