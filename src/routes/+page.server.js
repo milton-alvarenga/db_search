@@ -82,7 +82,9 @@ async function getMySQLData(terms){
             table_name LIKE ?
             OR
             column_name LIKE ?
-        `, ['%'+terms+'%','%'+terms+'%']);
+            or
+            data_type LIKE ?
+        `, ['%'+terms+'%','%'+terms+'%','%'+terms+'%']);
 
     return result;
 }
@@ -94,7 +96,7 @@ export async function load( { params }) {
 
 export const actions = {
     search: async ( {request}) => {
-        
+
         let formData = Object.fromEntries(await request.formData());
         let formError = Object.keys(formData).reduce((acc,curr) => (acc[curr]=[],acc),{});
         try{
