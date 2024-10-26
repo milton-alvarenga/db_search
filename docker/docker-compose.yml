@@ -1,0 +1,9 @@
+services:
+  node_app:
+    image: node:20.5.1  # Replace with the latest stable Node.js version
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../code:/app  # Mounts the ../code directory to /app in the container
+    command: ["tail", "-f", "/dev/null"]  # Keeps the container running
