@@ -40,20 +40,24 @@
 			{#if form.result.length}
 			<div>
 				<table>
-					<tr>
-						<th>Database</th>
-						<th>Table</th>
-						<th>Field</th>
-						<th>Data Type</th>
-					</tr>
+					<thead>
+						<tr>
+							<th>Database</th>
+							<th>Table</th>
+							<th>Field</th>
+							<th>Data Type</th>
+						</tr>
+					</thead>
+					<tbody>
 					{#each form.result as result}
-					<tr>
-						<td>{result.db_name}</td>
-						<td>{result.table_name}</td>
-						<td>{result.field_name}</td>
-						<td>{result.data_type}</td>
-					</tr>
+						<tr>
+							<td>{result.db_name}</td>
+							<td>{result.table_name}</td>
+							<td>{result.field_name}</td>
+							<td>{result.data_type}</td>
+						</tr>
 					{/each}
+					</tbody>
 				</table>
 			</div>
 			{:else}
