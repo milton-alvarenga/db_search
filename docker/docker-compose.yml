@@ -4,6 +4,8 @@ services:
     working_dir: /app
     ports:
       - "5173:5173"
+    extra_hosts:
+      - host.docker.internal:host-gateway
     volumes:
       - ../code:/app  # Mounts the ../code directory to /app in the container
     command: ["tail", "-f", "/dev/null"]  # Keeps the container running
